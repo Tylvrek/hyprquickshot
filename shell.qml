@@ -100,7 +100,8 @@ FreezeScreen {
         screenshotProcess.command = ["sh", "-c",
             `magick "${tempPath}" -crop ${scaledWidth}x${scaledHeight}+${scaledX}+${scaledY} "${outputPath}" && ` +
             `wl-copy < "${outputPath}" && ` +
-            `rm "${tempPath}"`
+            `rm "${tempPath}" &&` +
+			`satty --filename "${outputPath}"`
         ]
 
         screenshotProcess.running = true
